@@ -30,6 +30,21 @@ class User extends Authenticatable {
 		'admin',
 	];
 
+	//Mutadores
+	public function setNameAttribute($value) {
+		//Accedemos al atributo name de este modelo
+		$this->attributes['name'] = strtolower($value);
+	}
+
+	public function setEmailAttribute($value) {
+		$this->attributes['email'] = strtolower($value);
+	}
+
+	//Accesores
+	public function getNameAttribute($value) {
+		return ucfirst($value);
+	}
+
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *
